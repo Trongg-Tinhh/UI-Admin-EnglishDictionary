@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>English Dictionary Admin</title>
+  <th:block th:replace="~{layout :: link-css}"></th:block>
+</head>
+<body>
+<th:block th:replace="~{layout :: header}"></th:block>
+
+
+<div class="container text-center">
+  <h2 class="text-center text-primary fs-6">List Level</h2>
+  <br>
+  <table class="table table-primary w-100 fs-6">
+    <thead>
+    <tr>
+      <th scope="col" class="text-start">ID</th>
+      <th scope="col" class="text-start">Level name</th>
+      <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="occupation,i: ${occupations}">
+      <td th:text="${occupation.getKey()}" class="text-start"></td>
+      <td th:text="${occupation.getValue()}" class="text-start"></td>
+      <td>
+        <button th:id="'btn-'+${occupation.getKey()}" type="button" class="btn btn-outline-warning"
+                data-bs-toggle="modal" th:data-bs-target="'#exampleModal-'+${occupation.getKey()}">
+          Edit
+        </button>
+        <span>||</span>
+        <button type="button" class="btn btn-outline-danger">
+          <a th:href="@{/user/occupation/delete/{id}(id=${occupation.getKey()})}"
+             class="text-decoration-none">Delete</a>
+        </button>
+      </td>
+      <th:block th:data-block-gender="'btn-'+${occupation.getKey()}"
+                th:replace="~{fragments/editOccupation :: edit-occupation(${occupation.getKey()})}"></th:block>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<th:block th:replace="~{layout :: footer}"></th:block>
+<th:block th:replace="~{layout :: script-js}"></th:block>
+</body>
+</html>

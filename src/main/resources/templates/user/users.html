@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>English Dictionary Admin</title>
+    <th:block th:replace="~{layout :: link-css}"></th:block>
+</head>
+<body>
+<th:block th:replace="~{layout :: header}"></th:block>
+
+<div class="container text-center">
+    <br>
+    <table class="table-primary w-100 fs-6">
+        <thead>
+        <tr>
+            <th scope="col" class="text-start">Email</th>
+            <th scope="col" class="text-start">Full Name</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Level</th>
+            <th scope="col">Occupation</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user: ${users}">
+            <td th:text="${user.getEmail()}" class="text-start"></td>
+            <td th:text="${user.getFullName()}" class="text-start"></td>
+            <td th:text="${user.getGender()}"></td>
+            <td th:text="${user.getLevel()}"></td>
+            <td th:text="${user.getOccupation()}"></td>
+            <td th:if="${user.getActive()==true}" >
+                <button type="button" class="btn btn-outline-danger w-100" >
+                    <a th:href="@{/user/disable/{id}(id=${user.getId()})}" class="text-decoration-none">Disable</a>
+                </button>
+            </td>
+            <td th:if="${user.getActive()==false}">
+                <button type="button" class="btn btn-primary w-100">
+                    <a th:href="@{/user/disable/{id}(id=${user.getId()})}" class="text-decoration-none text-light">Enable</a>
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<th:block th:replace="~{layout :: footer}"></th:block>
+<th:block th:replace="~{layout :: script-js}"></th:block>
+</body>
+</html>

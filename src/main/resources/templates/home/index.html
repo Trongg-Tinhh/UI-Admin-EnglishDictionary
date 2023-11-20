@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>English Dictionary Admin</title>
+    <th:block th:replace="~{layout :: link-css}"></th:block>
+</head>
+<body>
+<th:block th:replace="~{layout :: header}"></th:block>
+
+<div class="container text-center">
+    <hr>
+    <h2 class="text-primary text-center">Choose Action</h2>
+    <br>
+    <hr>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-outline-primary">
+                <a th:href="@{/wordlists}" class="text-decoration-none">Wordlists</a>
+            </button>
+        </div>
+        <div class="col">
+            <button class="btn btn-outline-primary">
+                <a th:href="@{/user/users}" class="text-decoration-none">Users</a>
+            </button>
+        </div>
+        <div class="col">
+            <button class="btn btn-outline-primary">
+                <a th:href="@{/user/genders}" class="text-decoration-none">Genders</a>
+            </button>
+        </div>
+        <div class="col">
+            <button class="btn btn-outline-primary">
+                <a th:href="@{/user/levels}" class="text-decoration-none">Levels</a>
+            </button>
+        </div>
+        <div class="col">
+            <button class="btn btn-outline-primary">
+                <a th:href="@{/user/occupations}" class="text-decoration-none">Occupations</a>
+            </button>
+        </div>
+    </div>
+</div>
+
+<th:block th:replace="~{layout :: footer}"></th:block>
+<th:block th:replace="~{layout :: script-js}"></th:block>
+</body>
+</html>
