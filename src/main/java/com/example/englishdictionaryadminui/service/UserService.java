@@ -17,7 +17,8 @@ import java.util.Map;
 @Service
 public class UserService {
     private final String Port = "4040";
-    private final String Host= "http://localhost:";
+    /*private final String Host= "http://localhost:";*/
+    private final String Host= "http://10.1.3.91:";
     public ResponseEntity<Map<String,String >> getAllGender()
     {
         try {

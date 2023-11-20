@@ -16,7 +16,8 @@ import java.util.Map;
 @Service
 public class WordlistService {
     String Port = "4040";
-    private final String Host= "http://localhost:";
+    /*private final String Host= "http://localhost:";*/
+    private final String Host= "http://10.1.3.91:";
     public ResponseEntity<List<Wordlist>> getAllWordlist() {
         try {
             String url = Host + Port + "/api/wordlists/r4qtSQKgvrWtswB6o3Trs18st2j1";
